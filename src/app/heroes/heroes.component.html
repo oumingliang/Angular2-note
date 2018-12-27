@@ -1,0 +1,63 @@
+
+  <!--<p>-->
+    <!--{{hero.name}}-->
+  <!--</p>-->
+  <!--<h2>{{hero.name | uppercase}} Details</h2>-->
+  <!--<div><span>id: </span>{{hero.id}}</div>-->
+  <!--<div>-->
+    <!--<label>name:-->
+      <!--<input [(ngModel)]="hero.name" placeholder="name">-->
+    <!--</label>-->
+  <!--</div>-->
+
+  <!--<h2>My Heroes</h2>-->
+  <!--<ul class="heroes">-->
+    <!--<li *ngFor="let i of heroes">-->
+      <!--<span class="badge">{{i.id}}</span> {{i.name}}-->
+    <!--</li>-->
+  <!--</ul>-->
+  <!--<div>-->
+    <!--<h2>ngSwitch</h2>-->
+    <!--&lt;!&ndash;<input name="myVal" type="radio" title="" value="1" (click)="changeValue($event)">1&ndash;&gt;-->
+    <!--&lt;!&ndash;<input name="myVal" type="radio" title="" value="2" (click)="changeValue($event)">2&ndash;&gt;-->
+    <!--&lt;!&ndash;<input name="myVal" type="radio" title="" value="3" (click)="changeValue($event)">3&ndash;&gt;-->
+    <!--&lt;!&ndash;<input name="myVal" type="radio" title="" value="4" (click)="changeValue($event)">4&ndash;&gt;-->
+    <!--&lt;!&ndash;<input name="myVal" type="radio" title="" value="5" (click)="changeValue($event)">5&ndash;&gt;-->
+    <!--<input name="myVal" type="radio" title="" value="1" [(ngModel)]="myVal">1-->
+    <!--<input name="myVal" type="radio" title="" value="2" [(ngModel)]="myVal">2-->
+    <!--<input name="myVal" type="radio" title="" value="3" [(ngModel)]="myVal">3-->
+    <!--<input name="myVal" type="radio" title="" value="4" [(ngModel)]="myVal">4-->
+    <!--<input name="myVal" type="radio" title="" value="5" [(ngModel)]="myVal">5-->
+    <!--<hr>-->
+    <!--<span [ngSwitch]="myVal">-->
+          <!--<span *ngSwitchCase="'1'">ONE</span>-->
+          <!--<span *ngSwitchCase="'2'">TWO</span>-->
+          <!--<span *ngSwitchCase="'3'">THREE</span>-->
+          <!--<span *ngSwitchCase="'4'">FOUR</span>-->
+          <!--<span *ngSwitchCase="'5'">FIVE</span>-->
+          <!--<span *ngSwitchDefault>other</span>-->
+        <!--</span>-->
+  <!--</div>-->
+
+
+  <h2>My Heroes</h2>
+
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes"
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+  <div *ngIf="selectedHero">
+
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="selectedHero.name" placeholder="name">
+      </label>
+    </div>
+
+  </div>
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>

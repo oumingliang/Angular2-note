@@ -3,12 +3,19 @@
   能在 AppComponent 中使用 RouterOutlet，是因为 AppModule 导入了 AppRoutingModule，而 AppRoutingModule 中导出了 RouterModule。
 -->
 <!--<div style="text-align:center">-->
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+  <!--<h1>-->
+    <!--Welcome to {{ title }}!-->
+  <!--</h1>-->
 
 
-  <router-outlet></router-outlet>
-  <app-messages></app-messages>
-<!--</div>-->
+  <!--<router-outlet></router-outlet>-->
+  <!--<app-messages></app-messages>-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
